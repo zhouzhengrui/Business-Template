@@ -1,0 +1,112 @@
+.rowBox-2 {
+	@include clearFix;
+	.group {
+		width: 47%;
+		float: left;
+		position: relative;
+	}
+	.rowFix {
+		margin-left: 6%;
+	}
+}
+
+.rowBox-3 {
+	@include clearFix;
+	.group {
+		width: 28%;
+		float: left;
+		position: relative;
+	}
+	.rowFix {
+		margin: 0 8%;
+	}
+}
+
+.arrayBox-3 {
+	@include clearFix;
+	.group {
+		width: 320px;
+		float: left;
+		margin-right: 20px;
+		margin-bottom: 20px;
+		position: relative;
+	}
+	.arrayFix {
+		margin-right: 0;
+	}
+	.imgBox {
+		div {
+			text-align: center;
+			display: table-cell;
+			vertical-align: middle;
+			@if $Border {
+				width: 310px;
+				height: 232px;
+			} @else {
+				width: 320px;
+				height: 240px;
+			}
+		}
+		img {
+			@if $Border {
+				max-width: 310px;
+				max-height: 232px;
+			} @else {
+				max-width: 320px;
+				max-height: 240px;
+			}
+		}
+	}
+}
+
+.arrayBox-4 {
+	@include clearFix;
+	.group {
+		width: 235px;
+		float: left;
+		margin-right: 20px;
+		margin-bottom: 20px;
+		position: relative;
+	}
+	.arrayFix {
+		margin-right: 0;
+	}
+}
+
+.pageArrayBox-3 {
+	@include clearFix;
+	.group {
+		width: 233px;
+		float: left;
+		margin-right: 20px;
+		margin-bottom: 20px;
+		position: relative;
+	}
+	.arrayFix {
+		margin-right: 0;
+		clear: right;
+	}
+	.imgBox {
+		div {
+			text-align: center;
+			display: table-cell;
+			vertical-align: middle;
+			@if $Border {
+				width: 223px;
+				height: 167px;
+			} @else {
+				width: 233px;
+				height: 175px;
+			}
+		}
+		img {
+			@if $Border {
+				max-width: 223px;
+				max-height: 167px;
+			} @else {
+				max-width: 233px;
+				max-height: 175px;
+			}
+		}
+	}
+}

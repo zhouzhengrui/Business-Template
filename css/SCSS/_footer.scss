@@ -1,0 +1,130 @@
+@if $Template == Business01 {
+
+	.footerLinkBox {
+		background: $grayBackground;
+		height: 50px;
+		.footerLink01 {
+			padding: 12px 0;
+			a {
+				@include inlineBlock;
+				height: 24px;
+				line-height: 24px;
+				color: nth($fontColor, 2);
+				&:hover {
+					color: $mainColor;
+				}
+			}
+			span {
+				color: $borderColor;
+				padding: 0 5px;
+			}
+		}
+		.footerLink02 {
+			border-left: 1px solid $borderColor;
+			a {
+				display: block;
+				float: left;
+				height: 50px;
+				line-height: 50px;
+				padding: 0 20px;
+				color: nth($fontColor, 2);
+				border-right: 1px solid $borderColor;
+				&:hover {
+					color: #fff;
+					@if $Gradient == one {
+						@include mainColorBackgroundGradient(5%);
+					}
+					@if $Gradient == two {
+						@include twoColorBackgroundGradient(darken($auxColor, 5%), darken($mainColor, 5%));
+					}
+					@if $Gradient == none {
+						background: $mainColor;
+					}
+				}
+			}
+			.fontIcon {
+				font-size: 16px;
+				margin-left: 5px;
+			}
+		}
+	}
+
+	.footerBox {
+		padding: 50px 0;
+		color: nth($darkBackgroundFontColor, 1);
+		background: $darkBackgroundColor;
+		.titleBox {
+			margin-bottom: 10px;
+			@if border {
+				border-bottom: 1px solid mix($darkBackgroundColor, #fff, 90%);
+			}
+			.title {
+				color: nth($darkBackgroundFontColor, 2);
+				margin-bottom: 0;
+				border-bottom: 0;
+			}
+		}
+		.formBox {
+			table {
+				tbody {
+					.input-text {
+						color: nth($darkBackgroundFontColor, 1);
+						@if $Border {
+							border: 1px solid mix($darkBackgroundColor, #fff, 90%);
+							background: mix($darkBackgroundColor, #000, 90%);
+						} @else {
+							background: mix($darkBackgroundColor, #000, 80%);
+						}
+						&:focus {
+							color: nth($darkBackgroundFontColor, 2);
+							@if $Border {
+								border: 1px solid mix($darkBackgroundColor, #fff, 80%);
+							} @else {
+								background: mix($darkBackgroundColor, #000, 70%);
+							}
+						}
+					}
+				}
+			}
+		}
+		.contactBox {
+			dl {
+				dd {
+					@if $Border {
+						border-bottom: 1px solid mix($darkBackgroundColor, #fff, 90%);
+					}
+				}
+				a {
+					color: nth($darkBackgroundFontColor, 1);
+					&:hover {
+						color: nth($darkBackgroundFontColor, 2);
+					}
+				}
+			}
+		}
+	}
+
+	.footerTitleBox {
+		padding-bottom: 15px;
+		margin-bottom: 10px;
+	}
+
+
+
+	.bottomBox {
+		color: mix($darkBackgroundColor, #fff, 75%);
+		font-size: 12px;
+		background: mix($darkBackgroundColor, #000, 80%);
+		p {
+			padding: 15px 0;
+		}
+		a {
+			color: nth($darkBackgroundFontColor, 1);
+			&:hover{
+				color: nth($darkBackgroundFontColor, 2);
+			}
+		}
+	}
+
+
+}

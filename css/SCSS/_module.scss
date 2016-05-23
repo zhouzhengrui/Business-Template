@@ -1,0 +1,390 @@
+@if $Template == Business01 {
+
+	// icon text array
+	.iconTextArray {
+		.group {
+			text-align: center;
+		}
+		.rowFix {
+			@if $Border {
+				&:after, &:before {
+					content: "";
+					display: block;
+					position: absolute;
+					height: 100%;
+					width: 1px;
+					background: $borderColor;
+					top: 0;
+					z-index: 0;
+				}
+				&:after {
+					left: -15%;
+				}
+				&:before {
+					right: -15%;
+				}
+			}
+		}
+		.title {
+			margin-bottom: 15px;
+		}
+		.text {
+			color: nth($fontColor, 2);
+		}
+		.iconBox {
+			@include inlineBlock;
+			width: 60px;
+			height: 60px;
+			margin-bottom: 20px;
+		}
+		.fontIcon {
+			font-size: 60px;
+			color: $mainColor;
+			@if $Block {
+				@if $Gradient == one {
+					@include mainColorFontGradient;
+				}
+				@if $Gradient == two {
+					@include twoColorFontGradient;
+				}
+			}
+		}
+	}
+
+	// image box
+	.imageBox {
+		@if $Border {
+			border: 1px solid $borderColor;
+			padding: 5px;
+			background: #fff;
+		}
+		img {
+			display: block;
+			width: 100%;
+		}
+	}
+
+	// info box
+	.infoBox {
+		.text {
+			color: nth($fontColor, 2);
+			margin-bottom: 15px;
+		}
+	}
+
+	// parallax
+	.parallaxBox {
+		height: 350px;
+		background-position: 50% 0;
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		background-size: cover;
+		position: relative;
+		.parallaxText {
+			position: absolute;
+			width: 50%;
+			top: 50%;
+			left: 50%;
+			margin-left: -25%;
+			text-align: center;
+			color: #fff;
+			.title {
+				margin: 15px 0;
+				padding: 15px 0;
+				border-top: 1px solid #fff;
+				border-top: 1px solid rgba(255, 255, 255, .5);
+				border-bottom: 1px solid #fff;
+				border-bottom: 1px solid rgba(255, 255, 255, .5);
+			}
+			.auxTitle, .text {
+				margin: 15px 0;
+			}
+		}
+	}
+
+	// images array
+	.imageArray {
+		overflow: hidden;
+		.imgBox {
+			@if $Border {
+				border: 1px solid $borderColor;
+				padding: 4px;
+				background: #fff;
+			}
+			div {
+				text-align: center;
+				display: table-cell;
+				vertical-align: middle;
+				overflow: hidden;
+			}
+			img {
+				vertical-align: middle;
+			}
+		}
+		.textBox {
+			.title {
+				margin-top:10px;
+				a {
+					color: nth($fontColor, 1);
+					&:hover {
+						color: $mainColor;
+					}
+				}
+			}
+			.text {
+				color: nth($fontColor, 2);
+			}
+		}
+	}
+
+	// images cover
+	.imageCover {
+		position: relative;
+		overflow: hidden;
+	}
+
+	.cover01 {
+		.coverBox, .coverBackground {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+		}
+		.coverBackground {
+			@include opacity(0);
+			background: $darkBackgroundColor;
+		}
+		.coverTitle {
+			position: absolute;
+			text-align: center;
+			color: #fff;
+			width: 90%;
+			bottom: 100%;
+			margin-left: 5%;
+		}
+		.coverButton {
+			position: absolute;
+			text-align: center;
+			width: 100%;
+			top: 100%;
+			a {
+				@include inlineBlock;
+				margin: 0 3px;
+				font-size: 16px;
+				padding: 10px;
+				border: 1px solid #fff;
+				color: #fff;
+				&:hover {
+					background: #fff;
+					color: $mainColor;
+				}
+				.fontIcon {
+					width: 16px;
+					height: 16px;
+				}
+			}
+		}
+	}
+
+	.cover02 {
+		.imgBox {
+			div {
+				overflow: hidden;
+			}
+			img {
+				margin-top: 0;
+			}
+		}
+		.coverBox {
+			position: absolute;
+			text-align: center;
+			width: 100%;
+			top: 100%;
+			padding: 15px 0;
+			@if $Gradient == one {
+				@include mainColorBackgroundGradient;
+			}
+			@if $Gradient == two {
+				@include twoColorBackgroundGradient;
+			}
+			@if $Gradient == none {
+				background: $mainColor;
+			}
+		}
+		.coverTitle {
+			padding: 0 15px;
+			color: #fff;
+		}
+		.coverText {
+			color: mix($mainColor, #fff, 25%);
+		}
+	}
+
+	// images scroll
+	.imageScrollBox-X {
+		.box {
+			overflow: hidden;
+			margin-bottom: 30px;
+		}
+		ul.list {
+			overflow: hidden;
+			width: 9999px;
+			@include clearFix;
+			li {
+				float: left;
+				width: 204px;
+				overflow: hidden;
+			}
+			.imgBox {
+				float: left;
+				@if $Border {
+					border: 1px solid $borderColor;
+					padding: 4px;
+				}
+				div {
+					text-align: center;
+					display: table-cell;
+					vertical-align: middle;
+					@if $Border {
+						width: 174px;
+						height: 130px;
+					} @else {
+						width: 184px;
+						height: 138px;
+					}
+				}
+				img {
+					vertical-align: middle;
+					@if $Border {
+						max-width: 174px;
+						max-height: 130px;
+					} @else {
+						max-width: 184px;
+						max-height: 138px;
+					}
+				}
+			}
+		}
+		.scrollBtn {
+			text-align: center;
+			a {
+				@include inlineBlock;
+				font-size: 16px;
+				color: nth($fontColor, 2);
+				padding: 10px;
+				border: 1px solid $borderColor;
+				&:hover {
+					color: #fff;
+					border: 1px solid $mainColor;
+					@if $Gradient == one {
+						@include mainColorBackgroundGradient;
+					}
+					@if $Gradient == two {
+						@include twoColorBackgroundGradient;
+					}
+					@if $Gradient == none {
+						background: $mainColor;
+					}
+				}
+				.fontIcon {
+					width: 16px;
+					height: 16px;
+				}
+			}
+		}
+	}
+
+	// form box
+	.formBox {
+		p {
+			margin: 10px 0;
+		}
+		h5 {
+			display: none;
+		}
+		table {
+			table-layout: fixed;
+			border: 0 !important;
+			margin: 0 !important;
+			tbody {
+				th, td {
+					border: 0;
+					padding: 0;
+				}
+				th {
+					display: none;
+				}
+				td {
+					width: 100%;
+				}
+				.input-text {
+					height: 24px;
+					padding: 5px 10px;
+					margin: 0 0 10px;
+					font: $textFont;
+					color: nth($fontColor, 2);
+					@if $Border {
+						border: 1px solid $borderColor;
+						background: $grayBackground;
+					}
+					&:focus {
+						color: nth($fontColor, 1);
+						@if $Border {
+							border: 1px solid $mainColor;
+						}
+					}
+				}
+				.submit {
+					input {
+						@extend .button;
+						padding: 2px 30px;
+						cursor: pointer;
+					}
+				}
+			}
+		}
+	}
+
+	// contact box
+	.contactBox {
+		dl {
+			margin-top: -10px;
+			dt {
+				width: 100px;
+				float: left;
+				padding-top: 10px;
+				padding-bottom: 10px;
+			}
+			dd {
+				padding-left: 100px;
+				@if $Border {
+					border-bottom: 1px solid $borderColor;
+					padding-top: 10px;
+					padding-bottom: 10px;
+				} @else {
+					padding-top: 10px;
+					padding-bottom: 10px;
+				}
+			}
+			a {
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+			.fontIcon {
+				width: 16px;
+				height: 16px;
+				font-size: 16px;
+				margin-right: 8px;
+			}
+		}
+		.footerContactLink {
+			margin-top: 10px;
+		}
+	}
+
+}
+
+
+

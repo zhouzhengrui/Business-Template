@@ -1,0 +1,55 @@
+@if $Template == Business01 {
+
+	.topBox {
+		background: $darkBackgroundColor;
+		height: 38px;
+		line-height: 38px;
+		color: nth($darkBackgroundFontColor, 1);
+		ul {
+			li {
+				float: left;
+				margin-right: 15px;
+				a {
+					color: nth($darkBackgroundFontColor, 1);
+					&:hover {
+						color: nth($darkBackgroundFontColor, 2);
+					}
+				}
+				i {
+					margin-right: 5px;
+					font-size: 14px;
+				}
+			}
+			&.pullRight {
+				li {
+					margin-left: 20px;
+					margin-right: 0;
+				}
+			}
+		}
+	}
+
+	.headerBox {
+		border-bottom: 5px solid $borderColor;
+		height: 115px;
+		*position: relative;
+		*z-index: 99;
+		.container {
+			position: relative;
+		}
+		a.logo {
+			$height: 80px;
+			display: block;
+			float: left;
+			height: $height;
+			position: absolute;
+			left: 0;
+			top: 50%;
+			margin-top: - $height / 2;
+			img {
+				height: $height;
+			}
+		}
+	}
+
+}

@@ -1,0 +1,66 @@
+// Fix IE
+
+@mixin opacity($opacity: 50) {
+	opacity: $opacity / 100;
+	filter: alpha(opacity=$opacity);
+}
+
+@mixin inlineBlock {
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+}
+
+@mixin clearFix {
+	&:after {
+		content: "";
+		display: block;
+		height: 0;
+		clear: both;
+	}
+	*zoom: 1;
+}
+
+@mixin textOverflow {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+@mixin borderRadius($radius) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	border-radius: $radius;
+}
+
+// animation
+
+@mixin animation($animation...) {
+	-webkit-animation: $animation;
+	animation: $animation;
+}
+
+@mixin transform($transform...) {
+	-webkit-transform: $transform;
+	transform: $transform;
+}
+
+@mixin transition($transition...) {
+	-webkit-transition: $transition;
+	transition: $transition;
+}
+
+@mixin animationName($animationName...) {
+	-webkit-animation-name: $animationName;
+	animation-name: $animationName;
+}
+
+@mixin transformOrigin($transformOrigin...) {
+	-webkit-transform-origin: $transformOrigin;
+	transform-origin: $transformOrigin;
+}
+
+@mixin animationTimingFunction($animationTimingFunction...) {
+	-webkit-animation-timing-function: $animationTimingFunction;
+	animation-timing-function: $animationTimingFunction;
+}

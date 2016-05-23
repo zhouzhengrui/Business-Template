@@ -1,0 +1,86 @@
+@if $Template == Business01 {
+
+	.sliderBox {
+		position: relative;
+		text-align: center;
+		z-index: 1;
+		div {
+			position: relative;
+			width: 100%;
+			overflow: hidden;
+			margin: 0 auto;
+			background: $darkBackgroundColor;
+			min-height: 300px;
+			list-style: none;
+			li {
+				-webkit-backface-visibility: hidden;
+				position: absolute;
+				display: none;
+				width: 100%;
+				left: 0;
+				top: 0;
+				overflow: hidden;
+				&:first-child {
+					position: relative;
+					display: block;
+					float: left;
+				}
+				a {
+					cursor: default;
+				}
+			}
+			img {
+				display: block;
+				width: 100%;
+				float: left;
+			}
+		}
+		.slider_tabs {
+			margin: 0 auto;
+			padding: 10px 0;
+			text-align: center;
+			li {
+				@include inlineBlock;
+				margin: 0 5px;
+			}
+			a {
+				display: block;
+				width: 8px;
+				height: 8px;
+				border-radius: 50%;
+				background: #ccc;
+				overflow: hidden;
+				text-indent: -999em;
+			}
+			.slider_here a {
+				background: $mainColor;
+			}
+		}
+		.prev, .next {
+			position: absolute;
+			z-index: 3;
+			cursor: pointer;
+			font-size: 40px;
+			top: 50%;
+			margin-top: -34px;
+			color: nth($darkBackgroundFontColor,2);
+			@include opacity(30);
+			&:hover {
+				@include opacity(75);
+			}
+			&:active {
+				@include opacity(30);
+				-webkit-transition: all 0s;
+				transition: all 0s;
+			}
+		}
+		.prev {
+			left: 20px;
+		}
+		.next {
+			right: 20px;
+		}
+
+	}
+
+}

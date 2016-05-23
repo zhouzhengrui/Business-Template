@@ -1,0 +1,393 @@
+// scale
+
+$iAnimation: iScale;
+
+.#{$iAnimation}Animation {
+	.iAnimation {
+		@include transition(.75s);
+	}
+	&:hover, &:focus, &:active {
+		&.iAnimation, .iAnimation {
+			@include transform(scale(1.1));
+		}
+
+	}
+}
+
+// spin
+
+$iAnimation: iSpin;
+
+@-webkit-keyframes #{$iAnimation} {
+	0% {
+		@include transform(rotate(0deg));
+	}
+	100% {
+		@include transform(rotate(359deg));
+	}
+}
+
+@keyframes #{$iAnimation} {
+	0% {
+		@include transform(rotate(0deg));
+	}
+	100% {
+		@include transform(rotate(359deg));
+	}
+}
+
+.#{$iAnimation} {
+	@include animationName(#{$iAnimation});
+}
+
+.#{$iAnimation}Animation:hover, .#{$iAnimation}Animation:active {
+	&.iAnimation, .iAnimation {
+		@include animation($iAnimation 1s ease-in-out 1);
+	}
+}
+
+$iAnimation: iSpinShort;
+
+@-webkit-keyframes #{$iAnimation} {
+	0% {
+		@include transform(rotate(0deg));
+	}
+	100% {
+		@include transform(rotate(90deg));
+	}
+}
+
+@keyframes #{$iAnimation} {
+	0% {
+		@include transform(rotate(0deg));
+	}
+	100% {
+		@include transform(rotate(90deg));
+	}
+}
+
+.#{$iAnimation} {
+	@include animationName(#{$iAnimation});
+}
+
+.#{$iAnimation}Animation:hover, .#{$iAnimation}Animation:active {
+	&.iAnimation, .iAnimation {
+		@include animation($iAnimation .3s ease-in-out 1);
+	}
+}
+
+// bounce
+
+$iAnimation: iBounce;
+
+@-webkit-keyframes #{$iAnimation} {
+	from, 20%, 53%, 80%, to {
+		@include animationTimingFunction(cubic-bezier(0.215, 0.610, 0.355, 1.000));
+		@include transform(translate3d(0, 0, 0));
+	}
+	40%, 43% {
+		@include animationTimingFunction(cubic-bezier(0.755, 0.050, 0.855, 0.060));
+		@include transform(translate3d(0, -30%, 0));
+	}
+	70% {
+		@include animationTimingFunction(cubic-bezier(0.755, 0.050, 0.855, 0.060));
+		@include transform(translate3d(0, -15%, 0));
+	}
+	90% {
+		@include transform(translate3d(0, -4%, 0));
+	}
+}
+
+@keyframes #{$iAnimation} {
+	from, 20%, 53%, 80%, to {
+		@include animationTimingFunction(cubic-bezier(0.215, 0.610, 0.355, 1.000));
+		@include transform(translate3d(0, 0, 0));
+	}
+	40%, 43% {
+		@include animationTimingFunction(cubic-bezier(0.755, 0.050, 0.855, 0.060));
+		@include transform(translate3d(0, -30%, 0));
+	}
+	70% {
+		@include animationTimingFunction(cubic-bezier(0.755, 0.050, 0.855, 0.060));
+		@include transform(translate3d(0, -15%, 0));
+	}
+	90% {
+		@include transform(translate3d(0, -4%, 0));
+	}
+}
+
+.#{$iAnimation} {
+	@include animationName(#{$iAnimation});
+	@include transformOrigin(center bottom);
+}
+
+.#{$iAnimation}Animation:hover, .#{$iAnimation}Animation:active {
+	&.iAnimation, .iAnimation {
+		@include animation($iAnimation 1s ease-in-out 1);
+	}
+}
+
+// rubber band
+
+$iAnimation: iRubberBand;
+
+@-webkit-keyframes #{$iAnimation} {
+	from {
+		@include transform(scale3d(1, 1, 1));
+	}
+	30% {
+		@include transform(scale3d(1.25, 0.75, 1));
+	}
+	40% {
+		@include transform(scale3d(0.75, 1.25, 1));
+	}
+	50% {
+		@include transform(scale3d(1.15, 0.85, 1));
+	}
+	65% {
+		@include transform(scale3d(.95, 1.05, 1));
+	}
+	75% {
+		@include transform(scale3d(1.05, .95, 1));
+	}
+	to {
+		@include transform(scale3d(1, 1, 1));
+	}
+}
+
+@keyframes #{$iAnimation} {
+	from {
+		@include transform(scale3d(1, 1, 1));
+	}
+	30% {
+		@include transform(scale3d(1.25, 0.75, 1));
+	}
+	40% {
+		@include transform(scale3d(0.75, 1.25, 1));
+	}
+	50% {
+		@include transform(scale3d(1.15, 0.85, 1));
+	}
+	65% {
+		@include transform(scale3d(.95, 1.05, 1));
+	}
+	75% {
+		@include transform(scale3d(1.05, .95, 1));
+	}
+	to {
+		@include transform(scale3d(1, 1, 1));
+	}
+}
+
+.#{$iAnimation} {
+	@include animationName(#{$iAnimation});
+}
+
+.#{$iAnimation}Animation:hover, .#{$iAnimation}Animation:active {
+	&.iAnimation, .iAnimation {
+		@include animation($iAnimation 1s ease-in-out 1);
+	}
+}
+
+// swing
+
+$iAnimation: iSwing;
+
+@-webkit-keyframes #{$iAnimation} {
+	20% {
+		@include transform(rotate3d(0, 0, 1, 15deg));
+	}
+
+	40% {
+		@include transform(rotate3d(0, 0, 1, -10deg));
+	}
+
+	60% {
+		@include transform(rotate3d(0, 0, 1, 5deg));
+	}
+
+	80% {
+		@include transform(rotate3d(0, 0, 1, -5deg));
+	}
+
+	to {
+		@include transform(rotate3d(0, 0, 1, 0deg));
+	}
+}
+
+@keyframes #{$iAnimation} {
+	20% {
+		@include transform(rotate3d(0, 0, 1, 15deg));
+	}
+
+	40% {
+		@include transform(rotate3d(0, 0, 1, -10deg));
+	}
+
+	60% {
+		@include transform(rotate3d(0, 0, 1, 5deg));
+	}
+
+	80% {
+		@include transform(rotate3d(0, 0, 1, -5deg));
+	}
+
+	to {
+		@include transform(rotate3d(0, 0, 1, 0deg));
+	}
+}
+
+.#{$iAnimation} {
+	@include animationName(#{$iAnimation});
+	@include transformOrigin(top center);
+}
+
+.#{$iAnimation}Animation:hover, .#{$iAnimation}Animation:active {
+	&.iAnimation, .iAnimation {
+		@include animation($iAnimation .5s ease-in-out 1);
+	}
+}
+
+// fade in up
+
+$iAnimation: iFadeInUp;
+
+@-webkit-keyframes #{$iAnimation} {
+	from {
+		opacity: 0;
+		@include transform(translate3d(0, -100%, 0));
+	}
+	to {
+		opacity: 1;
+		@include transform(none);
+	}
+}
+
+@keyframes #{$iAnimation} {
+	from {
+		opacity: 0;
+		@include transform(translate3d(0, -100%, 0));
+	}
+	to {
+		opacity: 1;
+		@include transform(none);
+	}
+}
+
+.#{$iAnimation} {
+	@include animationName(#{$iAnimation});
+}
+
+.#{$iAnimation}Animation:hover, .#{$iAnimation}Animation:active {
+	&.iAnimation, .iAnimation {
+		@include animation($iAnimation .3s ease-in-out 1);
+	}
+}
+
+// fade in down
+
+$iAnimation: iFadeInDown;
+
+@-webkit-keyframes #{$iAnimation} {
+	from {
+		opacity: 0;
+		@include transform(translate3d(0, 100%, 0));
+	}
+	to {
+		opacity: 1;
+		@include transform(none);
+	}
+}
+
+@keyframes #{$iAnimation} {
+	from {
+		opacity: 0;
+		@include transform(translate3d(0, 100%, 0));
+	}
+	to {
+		opacity: 1;
+		@include transform(none);
+	}
+}
+
+.#{$iAnimation} {
+	@include animationName(#{$iAnimation});
+}
+
+.#{$iAnimation}Animation:hover, .#{$iAnimation}Animation:active {
+	&.iAnimation, .iAnimation {
+		@include animation($iAnimation .3s ease-in-out 1);
+	}
+}
+
+// fade in left
+
+$iAnimation: iFadeInLeft;
+
+@-webkit-keyframes #{$iAnimation} {
+	from {
+		opacity: 0;
+		@include transform(translate3d(-100%, 0, 0));
+	}
+	to {
+		opacity: 1;
+		@include transform(none);
+	}
+}
+
+@keyframes #{$iAnimation} {
+	from {
+		opacity: 0;
+		@include transform(translate3d(-100%, 0, 0));
+	}
+	to {
+		opacity: 1;
+		@include transform(none);
+	}
+}
+
+.#{$iAnimation} {
+	@include animationName(#{$iAnimation});
+}
+
+.#{$iAnimation}Animation:hover, .#{$iAnimation}Animation:active {
+	&.iAnimation, .iAnimation {
+		@include animation($iAnimation .5s);
+	}
+}
+
+// fade in right
+
+$iAnimation: iFadeInRight;
+
+@-webkit-keyframes #{$iAnimation} {
+	from {
+		opacity: 0;
+		@include transform(translate3d(100%, 0, 0));
+	}
+	to {
+		opacity: 1;
+		@include transform(none);
+	}
+}
+
+@keyframes #{$iAnimation} {
+	from {
+		opacity: 0;
+		@include transform(translate3d(100%, 0, 0));
+	}
+	to {
+		opacity: 1;
+		@include transform(none);
+	}
+}
+
+.#{$iAnimation} {
+	@include animationName(#{$iAnimation});
+}
+
+.#{$iAnimation}Animation:hover, .#{$iAnimation}Animation:active {
+	&.iAnimation, .iAnimation {
+		@include animation($iAnimation .5s);
+	}
+}

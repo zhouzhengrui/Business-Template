@@ -1,0 +1,176 @@
+ul.menu {
+	a {
+		display: block;
+		position: relative;
+	}
+	li {
+		position: relative;
+	}
+	& > li {
+		float: left;
+	}
+	ul {
+		position: absolute;
+		display: none;
+		top: 100%;
+		left: 0;
+		z-index: 99;
+		ul {
+			top: 0;
+			left: 100%;
+		}
+		.sf-with-ul:after {
+			border-color: transparent;
+		}
+	}
+	.sf-with-ul {
+		&:after {
+			content: '';
+			position: absolute;
+			height: 0;
+			width: 0;
+		}
+		*zoom: 1;
+	}
+	&:hover > ul, &.sfHover > ul {
+		display: block;
+	}
+}
+
+@if $Template == Business01 {
+
+	ul.menu.pullRight {
+		// one level
+		float: right;
+		@if $Border {
+			border-right: 1px solid $borderColor;
+		}
+		a {
+			color: nth($fontColor, 1);
+		}
+		> li {
+			@if $Border {
+				border-left: 1px solid $borderColor;
+			} @else {
+				margin-left: 1px;
+			}
+			> a {
+				height: 115px;
+				line-height: 115px;
+				border-bottom: 5px solid $borderColor;
+				-webkit-transition: all 0s;
+				transition: all 0s;
+				@if $Block or $Border {
+					width: 89px;
+					text-align: center;
+				} @else {
+					width: auto;
+					margin-left: 25px;
+				}
+			}
+			&:hover, &.sfHover, &.current {
+				> a {
+					@if $Block {
+						@include mainColorBackgroundGradient;
+						color: #fff;
+						border-bottom: 5px solid mix($mainColor, #000, 85%);
+						@if $Gradient == one {
+							@include mainColorBackgroundGradient;
+						}
+						@if $Gradient == two {
+							@include twoColorBackgroundGradient;
+						}
+						@if $Gradient == none {
+							background: $mainColor;
+						}
+					} @else {
+						color: $mainColor;
+						border-bottom: 5px solid $mainColor;
+					}
+				}
+			}
+		}
+		// two level
+		ul {
+			width: 181px;
+			margin-left: -1px;
+			li {
+				border: 1px solid $borderColor;
+				border-top: 0;
+				background: #ededed;
+				a {
+					padding: 10px 15px 10px 30px;
+					min-height: 24px;
+					line-height: 24px;
+				}
+				&:hover, &.sfHover {
+					> a {
+						color: $mainColor;
+						background: #f9f9f9;
+					}
+				}
+			}
+			// infinite level
+			ul {
+				margin-left: 0;
+				margin-top: -1px;
+				border-top: 1px solid $borderColor;
+			}
+			.fontIcon {
+				position: absolute;
+				left: 15px;
+				top: 15px;
+				color: $mainColor;
+			}
+		}
+		// one level arrow
+		.sf-with-ul:after {
+			left: 50%;
+			margin-left: -5px;
+			border: 5px solid transparent;
+			border-top-color: #ccc;
+			border-top-color: rgba(0, 0, 0, .2);
+			@if $Block {
+				bottom: 20px;
+			} @else {
+				bottom: 10px;
+			}
+		}
+		// one level arrow hover
+		> li > .sf-with-ul:focus:after,
+		> li:hover > .sf-with-ul:after,
+		> .sfHover > .sf-with-ul:after {
+			animation: iFadeInUp .3s ease-out;
+			@if $Block {
+				border-top-color: #fff;
+			} @else {
+				border-top-color: $mainColor;
+			}
+		}
+		// one level arrow current
+		> .current > .sf-with-ul:after {
+			border-top-color: #fff;
+		}
+		// sub menu arrow
+		ul .sf-with-ul {
+			padding-right: 30px;
+		}
+		ul .sf-with-ul:after {
+			left: auto;
+			right: 10px;
+			top: 50%;
+			margin-top: -5px;
+			border: 5px solid transparent;
+			border-left-color: #ccc;
+			border-left-color: rgba(0, 0, 0, .2);
+		}
+		// sub menu arrow hover
+		ul li > .sf-with-ul:focus:after,
+		ul li:hover > .sf-with-ul:after,
+		ul .sfHover > .sf-with-ul:after {
+			border-left-color: $mainColor;
+			animation: iFadeInLeft .3s ease-out;
+		}
+	}
+
+}
